@@ -1,0 +1,84 @@
+body {
+    width: 100%;
+    height: 90vh;
+    background: url("img/city.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+  .wrapper{
+    text-align: center;
+    margin-top: 75px;
+  }
+  .wrapper img{
+    width: 300px;
+    margin-bottom: 400px;
+  }
+  .fa-long-arrow-down{
+    color: #fff;
+    font-size: x-large;
+    border: 1px solid #fff;
+    padding: 13px 20px;
+  }
+
+  .fa-long-arrow-down:hover{
+    color: #000011;
+    background-color: #fff;
+    cursor: pointer;
+    border-radius: 50%;
+  }
+  .box{
+    margin-top: 180px;
+    height: 600px;
+    background-image: linear-gradient(#00000000, #fff); 
+  }
+  .content{
+    padding-top: 100px;
+  }
+  .section{
+    background-image: linear-gradient(#fff, #fff); 
+  }
+  #company-name{
+    font-family: 'Cinzel', 'sans sarif';
+    font-weight: 800;
+    margin-bottom: 20px;
+  }
+  .container{
+    margin-top: 100px;
+    font-size: 18px;
+    margin-bottom: 220px;
+  }
+  label{
+    text-align: left !important;
+  }
+  .btn{
+    background-color: #8EA262;
+    color: #fff;
+  }
+  .tagline{
+    font-weight: 500;
+    color: #203444;
+  }
+  .row .user h1, .row .user h3{
+      font-size: 25px;
+      font-weight: 600;
+      color: #3D3D44;
+  }
+  .user{
+      margin-bottom: 30px;
+  }
+  footer{
+    border-top: 1px solid #ccc;
+    background-color: #fff;
+    padding: 20px;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .wrapper img{
+        margin-bottom: 200px;
+      }
+    .section{
+        padding: 0px 20px;
+    }
+  }
