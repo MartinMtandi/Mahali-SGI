@@ -17,12 +17,12 @@ if(isset($_POST['submit'])){
     //Server settings
     $mail->SMTPDebug = false;                      // Enable verbose debug output
     $mail->isSMTP();                                            // Send using SMTP
-    $mail->Host       = 'smtp.gmail.com';                    // Set the SMTP server to send through
+    $mail->Host       = 'smtp.zoho.com';                    // Set the SMTP server to send through
     $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
     $mail->Username   = 'pazorora@mahali-sgi.com';                     // SMTP username
-    $mail->Password   = '**********';                               // SMTP password
+    $mail->Password   = 'TateTina+2';                               // SMTP password
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` also accepted
-    $mail->Port       = 587;                                    // TCP port to connect to
+    $mail->Port       = 465;                                    // TCP port to connect to
 
     //Recipients
     $mail->setFrom($_POST['email'], 'Mailer');
