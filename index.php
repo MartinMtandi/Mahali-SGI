@@ -1,54 +1,3 @@
-<?php
-// Import PHPMailer classes into the global namespace
-// These must be at the top of your script, not inside a function
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
-use PHPMailer\PHPMailer\Exception;
-
-$results = '';
-$error = '';
-
-if(isset($_POST['submit'])){
-  require 'vendor/autoload.php';
-
-  $mail = new PHPMailer(true);
-
-  try{
-    //Server settings
-    $mail->SMTPDebug = false;                      // Enable verbose debug output
-    $mail->isSMTP();                                            // Send using SMTP
-    $mail->Host       = 'smtp.zoho.com';                    // Set the SMTP server to send through
-    $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
-    $mail->Username   = 'pazorora@mahali-sgi.com';                     // SMTP username
-    $mail->Password   = 'TateTina+2';                               // SMTP password
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` also accepted
-    $mail->Port       = 465;                                    // TCP port to connect to
-
-    //Recipients
-    $mail->setFrom($_POST['email'], 'Mailer');
-    $mail->addAddress('pazorora@mahali-sgi.com', 'Mahali SGI');     // Add a recipient
-    $mail->addReplyTo($_POST['email'], 'Client Email');
-    $mail->addCC('rumbidzai@mahali-sgi.com');
-
-    // Attachments
-    $mail->addAttachment('img/sgi.png');         // Add attachments
-
-    // Content
-    $mail->isHTML(true);                                  // Set email format to HTML
-    $mail->Subject = $_POST['subject'];
-    $mail->Body    = $_POST['message'] . '<br><br><br> Kind regards <br>' . $_POST['firstname'] . ' ' . $_POST['lastname'];
-
-    $mail->send();
-    $results = 'Message has been sent';
-    echo $results;
-
-  }catch (Exception $e) {
-    $error = "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
-    echo $error;
-}
-}
-
-?>
 
 <!doctype html>
 <html lang="en">
@@ -76,34 +25,6 @@ if(isset($_POST['submit'])){
       <h1 id="company-name">Mahali SGI</h1>
       <p class="tagline">Mahali SGI is an investment partnership that designs, develops, finances, and operates social infrastructure.</p>
       <p class="tagline">Our team has Southern African roots, wide global reach and combined expertise in project development, strategy, operations and infrastructure asset management.</p>
-      <div class="container" id="target">
-      <h1 id="company-name">Contact Us</h1>
-      <?php if($results !== ''){ ?>
-      <div class="alert alert-primary" role="alert">
-        <?php echo $results; ?>
-      </div>
-      <?php } ?>
-      <form action="" method="post" class="form">
-        <div class="form-row">
-          <div class="form-group col-md-6">
-            <input type="text" class="form-control form-control-lg" name="firstname" placeholder="Firstname" autocomplete="off" required>
-          </div>
-          <div class="form-group col-md-6">
-            <input type="text" class="form-control form-control-lg" name="lastname" placeholder="Lastname" autocomplete="off" required>
-          </div>
-        </div>
-        <div class="form-group">
-          <input type="email" class="form-control form-control-lg" name="email" placeholder="Email" required>
-        </div>
-        <div class="form-group">
-          <input type="text" class="form-control form-control-lg" name="subject" placeholder="Subject" required>
-        </div>
-        <div class="form-group">
-          <textarea name="message" class="form-control form-control-lg" id="msg" rows="5"style="min-width: 100%" required></textarea>
-        </div>
-        <button type="submit" name="submit" class="btn btn-block">Submit</button>
-      </form>
-      </div>
       <footer>
         &copy <script>document.write(new Date().getFullYear())</script> Powered by BKG Technologies
       </footer>
@@ -116,5 +37,19 @@ if(isset($_POST['submit'])){
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/5e61f1cbc32b5c191739e346/default';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
+    <!--End of Tawk.to Script-->
   </body>
 </html>
